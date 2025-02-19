@@ -1,5 +1,3 @@
-package HojaTrabajo4;
-
 public class InToPost {
     public static String infixToPostfix(String infix) {
         String postfix = "";

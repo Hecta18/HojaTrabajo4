@@ -1,5 +1,3 @@
-package HojaTrabajo4;
-
 public class Stack<E> implements abstractStack<E> {
     private int size;
     private Node<E> top;

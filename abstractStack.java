@@ -1,5 +1,3 @@
-package HojaTrabajo4;
-
 public interface abstractStack<E> {
     public void push(E item);
     public E pop();

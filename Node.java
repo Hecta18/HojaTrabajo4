@@ -1,5 +1,3 @@
-package HojaTrabajo4;
-
 public class Node<E> {
     protected E item;
     protected Node<E> next;
