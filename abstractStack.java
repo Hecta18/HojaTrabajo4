@@ -1,0 +1,9 @@
+package HojaTrabajo4;
+
+public interface abstractStack<E> {
+    public void push(E item);
+    public E pop();
+    public E peek();
+    public int size();
+    public boolean isEmpty();
+}
