@@ -1,4 +1,4 @@
-public class Stack<E> implements abstractStack<E> {
+public class Stack<E> implements AbstractStack<E> {
     private int size;
     private Node<E> top;
 
@@ -8,9 +8,13 @@ public class Stack<E> implements abstractStack<E> {
     }
 
     public void push(E item) {
-        Node<E> newNode = new Node<>(item);
+        Node<E> newNode = new Node<>(item); 
         newNode.next = top;
+        //the new node points to the previous top node,
+        //maintaining the chain of nodes that form the stack.
         top = newNode;
+        //top reference of the stack is updated 
+        //to point to the new nodes
         size++;
     }
 

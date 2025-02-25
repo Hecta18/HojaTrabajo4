@@ -1,4 +1,4 @@
-public interface abstractStack<E> {
+public interface AbstractStack<E> {
     public void push(E item);
     public E pop();
     public E peek();

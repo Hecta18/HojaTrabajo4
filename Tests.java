@@ -3,7 +3,7 @@ import org.junit.Test;
 public class Tests {
     @Test
     public void test1() {
-        System.out.println(InToPost.infixToPostfix("A + B * C"));
+        System.out.println(InToPost.infixToPostfix("( A + ( B - C ) ) * D"));
     }
 
     @Test
