@@ -7,7 +7,7 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         try {
             String input = br.readLine();
-            System.out.println(InToPost.infixToPostfix(input));
+            System.out.println(InToPost.getInstancia().infixToPostfix(input)); // Usamos Singleton
         } catch (IOException e) {
             e.printStackTrace();
         }

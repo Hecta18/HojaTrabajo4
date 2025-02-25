@@ -65,13 +65,12 @@ public class ListP<E> implements AbstractList<E>, Iterable<E> {
     }
     
     @Override
-    public Iterator<E> iterator() {
+    public Iterator iterator() {
         return new ListPIterator();
     }
 
     private class ListPIterator implements Iterator<E> {
-        //es necesario implementar para poder usar metodos
-        //de iteracion como un simple for
+
         private Node<E> current = head;
 
         @Override

@@ -1,20 +1,35 @@
-public class InToPost {
-    public static String infixToPostfix(String infix) {
-        String postfix = "";
-        Stack<String> stack = new Stack<String>();
-        String[] tokens = infix.split(" ");
-        ListP<String> infixList = new ListP<String>();
-        int i;
-        for(i=0;i<tokens.length;i++){
-            infixList.add(tokens[i]);
-        }//create list of tokens
 
-        //split the string by chunks according to the indicated symbol 
-        for (String token : infixList) {
+import java.util.Iterator;
+
+public class InToPost {
+    private static InToPost instancia;
+
+    private InToPost() {} // Constructor privado
+
+    public static InToPost getInstancia() {
+        if (instancia == null) {
+            instancia = new InToPost();
+        }
+        return instancia;
+    }
+    
+    public String infixToPostfix(String infix) {
+        String postfix = "";
+        AbstractStack<String> stack = EstructuraFactory.crearStack();
+        AbstractList<String> infixList = EstructuraFactory.crearLista();
+
+        for (String token : infix.split(" ")) {
+            infixList.add(token);
+        }
+
+  
+        Iterator<String> iterator = infixList.iterator();
+        while (iterator.hasNext()) {
+            String token = iterator.next();
             if (token.equals("(")) {
                 stack.push(token);
             } else if (token.equals(")")) {
-                while (!stack.peek().equals("(")) {//peek the top of the stack
+                while (!stack.peek().equals("(")) {
                     postfix += stack.pop() + " ";
                 }
                 stack.pop();
@@ -27,19 +42,17 @@ public class InToPost {
                 postfix += token + " ";
             }
         }
+
         while (!stack.isEmpty()) {
             postfix += stack.pop() + " ";
         }
-        return postfix;
+        return postfix.trim();
     }
 
-    private static int precedence(String operator) {
-        if (operator.equals("+") || operator.equals("-")) {
-            return 1;
-        } else if (operator.equals("*") || operator.equals("/")) {
-            return 2;
-        } else {
-            return 0;
-        }
+    private int precedence(String operator) {
+        if (operator.equals("+") || operator.equals("-")) return 1;
+        if (operator.equals("*") || operator.equals("/")) return 2;
+        return 0;
+    
     }
 }
