@@ -10,7 +10,8 @@ public class Main {
             String filePath = br1.readLine();
             try(BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String input = br.readLine();
-            System.out.println(InToPost.infixToPostfix(input));
+            System.out.println(InToPost.getInstancia().infixToPostfix(input)); // Usamos Singleton
+            System.out.println(InToPost.getInstancia().infixToPostfix(input));
             } catch (IOException e) {
                 e.printStackTrace();
             }
