@@ -1,9 +1,11 @@
-public class List<E> implements AbstractList<E> {
+import java.util.Iterator;
+
+public class ListP<E> implements AbstractList<E>, Iterable<E> {
     private int size;
     private Node<E> head;
     private Node<E> tail;
 
-    public List() {
+    public ListP() {
         size = 0;
         head = null;
         tail = null;
@@ -62,4 +64,26 @@ public class List<E> implements AbstractList<E> {
         return size == 0;
     }
     
+    @Override
+    public Iterator<E> iterator() {
+        return new ListPIterator();
+    }
+
+    private class ListPIterator implements Iterator<E> {
+        //es necesario implementar para poder usar metodos
+        //de iteracion como un simple for
+        private Node<E> current = head;
+
+        @Override
+        public boolean hasNext() {
+            return current != null;
+        }
+
+        @Override
+        public E next() {
+            E item = current.item;
+            current = current.next;
+            return item;
+        }
+    }
 }

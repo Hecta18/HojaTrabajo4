@@ -2,8 +2,15 @@ public class InToPost {
     public static String infixToPostfix(String infix) {
         String postfix = "";
         Stack<String> stack = new Stack<String>();
-        String[] infixArray = infix.split(" ");//split the string by chunks according to the indicated symbol 
-        for (String token : infixArray) {
+        String[] tokens = infix.split(" ");
+        ListP<String> infixList = new ListP<String>();
+        int i;
+        for(i=0;i<tokens.length;i++){
+            infixList.add(tokens[i]);
+        }//create list of tokens
+
+        //split the string by chunks according to the indicated symbol 
+        for (String token : infixList) {
             if (token.equals("(")) {
                 stack.push(token);
             } else if (token.equals(")")) {
