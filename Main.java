@@ -11,7 +11,6 @@ public class Main {
             try(BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String input = br.readLine();
             System.out.println(InToPost.getInstancia().infixToPostfix(input)); // Usamos Singleton
-            System.out.println(InToPost.getInstancia().infixToPostfix(input));
             } catch (IOException e) {
                 e.printStackTrace();
             }
